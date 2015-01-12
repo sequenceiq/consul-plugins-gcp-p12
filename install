@@ -1,0 +1,17 @@
+#!/bin/bash
+
+: ${LOGFILE:=/tmp/plugn_file.log}
+: ${DEBUG:=1}
+
+main(){
+  read encoded dest
+  debug "encoded=$encoded dest=$dest"
+  curl -Lko $dest $url || debug "Couldn't download target from URL to destination"
+  echo $encoded | base64 -d > $dest || debug "Couldn't save decoded text to destination"
+}
+
+debug(){
+  [[ "$DEBUG" ]] && echo "[DEBUG] $*" >> $LOGFILE
+}
+
+[[ "$0" == "$BASH_SOURCE" ]] && main "$@"

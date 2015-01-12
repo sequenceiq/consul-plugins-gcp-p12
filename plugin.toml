@@ -1,0 +1,11 @@
+[plugin]
+name = "file"
+description = "Saves a base64 encoded small text payload to a specific location"
+version = "1.0"
+maintainer_name = "SequenceIQ"
+maintainer_email = "info@sequenceiq.com"
+website_url = "http://github.com/sequenceiq/consul-plugins-file"
+
+[plugin.config]
+
+[plugin.compatibility]
