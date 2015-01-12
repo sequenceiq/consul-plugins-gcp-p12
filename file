@@ -4,10 +4,9 @@
 : ${DEBUG:=1}
 
 main(){
-  read encoded dest
-  debug "encoded=$encoded dest=$dest"
-  curl -Lko $dest $url || debug "Couldn't download target from URL to destination"
-  echo $encoded | base64 -d > $dest || debug "Couldn't save decoded text to destination"
+  read key dest
+  debug "key=$key dest=$dest"
+  curl "http://127.0.0.1:8500/v1/kv/$key?raw" | base64 -d > $dest || debug "Couldn't get value from KV store."
 }
 
 debug(){
