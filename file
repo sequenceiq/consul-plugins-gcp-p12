@@ -7,7 +7,7 @@ main(){
   key=$(echo $PAYLOAD | cut -d" " -f 1);
   dest=$(echo $PAYLOAD | cut -d" " -f 2);
   debug "key=$key dest=$dest"
-  curl "http://$CONSUL_HOST:$CONSUL_HTTP_PORT/v1/kv/$key?raw" | base64 -d > $dest"
+  curl "http://$CONSUL_HOST:$CONSUL_HTTP_PORT/v1/kv/$key?raw" | base64 -d > $dest
 }
 
 debug(){
