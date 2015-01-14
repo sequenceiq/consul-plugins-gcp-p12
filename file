@@ -4,9 +4,9 @@
 : ${DEBUG:=1}
 
 main(){
-  read key dest
+  echo $PAYLOAD || read key dest
   debug "key=$key dest=$dest"
-  curl "http://127.0.0.1:8500/v1/kv/$key?raw" | base64 -d > $dest || debug "Couldn't get value from KV store."
+  curl "http://$CONSUL_HOST:$CONSUL_HTTP_PORT/v1/kv/$key?raw" | base64 -d > $dest"
 }
 
 debug(){
