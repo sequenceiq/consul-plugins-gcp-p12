@@ -5,7 +5,7 @@
 
 main(){
   debug "Getting p12 file from Consul's key-value store"
-  curl "http://$CONSUL_HOST:$CONSUL_HTTP_PORT/v1/kv/recipes/gcp-p12/p12-encoded" | base64 -d > /usr/lib/hadoop/lib/gcp.p12
+  curl "http://$CONSUL_HOST:$CONSUL_HTTP_PORT/v1/kv/recipes.gcp-p12.p12-encoded" | base64 -d > /usr/lib/hadoop/lib/gcp.p12
   debug "p12 file successfully downloaded from key-value store."
 }
 
